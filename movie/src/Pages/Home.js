@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { axiosInstance } from "../Network/index";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap"
+import { useDispatch } from "react-redux";
+import {addTOFav} from '../store/action';
+
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -24,6 +28,11 @@ function Home() {
   }, []);
   console.log(movies);
 
+  const dispatch = useDispatch();
+  function addfav(itemId) {
+    dispatch(addTOFav(itemId));
+  }
+
   return (
     <div className="container">
       <h1>Movies</h1>
@@ -40,6 +49,9 @@ function Home() {
                 <Card.Text>
                   <Link to={`/MovieDetails/${movie.id}`}>{movie.title}</Link>
                 </Card.Text>
+               
+                <Button variant="outline-dark" onClick={()=> addfav(movie)}>Add Favorite</Button>
+               
               </Card.Body>
             </Card>
             </div>
