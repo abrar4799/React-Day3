@@ -1,15 +1,14 @@
-export const addTOFav = (Movie) => {
-    console.log(Movie);
+export  const addTOFavOne = (movie) => {
+   // console.log(Movie);
   return {
     type: "ADD_TO_FAV",
-   payload: Movie
+    movie
   };
 };
 
-
-export const removeFromFav = ( itemId ) => {
+export const removeFromFav = ( movie ) => {
     return {
         type: "REMOVE_FROM_FAV",
-        itemId:itemId,
+         movie
     }
 };

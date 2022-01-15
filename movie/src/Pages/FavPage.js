@@ -1,9 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Row, Col, Card, Container } from "react-bootstrap";
+import { useSelector , useDispatch} from "react-redux";
+import { Row, Col, Card, Container ,Button} from "react-bootstrap";
 import { MovieReducer } from "../store/reducer";
+import { removeFromFav } from "../store/action";
 
 function FavPage() {
+  const dispatch = useDispatch();
+  function remFromFav(state)
+  {
+    dispatch(removeFromFav(state))
+  }
   const states = useSelector((state) => state.fav);
   console.log(states);
   return (
@@ -21,9 +27,9 @@ function FavPage() {
                 <Card.Body>
                   <Card.Title>{state.title}</Card.Title>
 
-                  <button type="button" className="btn btn-dark">
-                    delete
-                  </button>
+                  <Button  variant="outline-dark" onClick={() => remFromFav(state) }>
+                    Delete
+                  </Button>
                 </Card.Body>
               </Col>
             );

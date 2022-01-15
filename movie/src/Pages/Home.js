@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap"
 import { useDispatch } from "react-redux";
-import {addTOFav} from '../store/action';
+import {addTOFavOne} from '../store/action'    ;
 
 
 function Home() {
@@ -26,13 +26,14 @@ function Home() {
         console.log(error);
       });
   }, []);
-  console.log(movies);
+ // console.log(movies);
 
   const dispatch = useDispatch();
-  function addfav(itemId) {
-    dispatch(addTOFav(itemId));
+  function addfav(Movie) {
+   // debugger;
+   console.log(Movie , "new mo");
+    dispatch(addTOFavOne(Movie));
   }
-
   return (
     <div className="container">
       <h1>Movies</h1>
