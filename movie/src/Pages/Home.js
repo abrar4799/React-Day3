@@ -4,8 +4,9 @@ import { axiosInstance } from "../Network/index";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap"
-import { useDispatch } from "react-redux";
-import {addTOFavOne} from '../store/action'    ;
+import { useDispatch, useSelector } from "react-redux";
+import {addTOFavOne} from '../store/action';
+import {GetMovies} from '../store/MovieAction'
 
 
 function Home() {
@@ -26,6 +27,8 @@ function Home() {
         console.log(error);
       });
   }, []);
+
+ // const movies = useSelector((state) => {state.movies} ) /**I' ve an error here */
  // console.log(movies);
 
   const dispatch = useDispatch();
@@ -38,7 +41,7 @@ function Home() {
     <div className="container">
       <h1>Movies</h1>
       <div className="d-flex flex-wrap">
-        {movies.map((movie, index) => {
+      {movies.map((movie, index) => {
           return (
             <div className="offset-1" key={movie.id}>
             <Card  >
