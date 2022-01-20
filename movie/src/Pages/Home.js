@@ -7,6 +7,7 @@ import { Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import {addTOFavOne} from '../store/action';
 import {GetMovies} from '../store/MovieAction'
+import ChangeLange from "./ChangeLange";
 
 
 function Home() {
@@ -58,7 +59,9 @@ function Home() {
                
               </Card.Body>
             </Card>
+            
             </div>
+           
           );
         })}
       </div>
